@@ -2,3 +2,4 @@
 .Rbuildignore
 .Rhistory
 ROptionsStrategies.Rproj
+.DS_Store
