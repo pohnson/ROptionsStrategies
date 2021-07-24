@@ -2,7 +2,7 @@
 #' @importFrom magrittr %>%
 #' @import httr
 
-wheel <- function(
+wheel_selector <- function(
   ticker = c('AAPL','GOOG'),
   expiration_date = Sys.Date(),
   consumer_key = NA
@@ -12,9 +12,10 @@ wheel <- function(
   if(class(ticker) != 'character'){
     print('x')
     stop('The input is not in a correct format. Please input either in vector or data frame with $ specifying a ticker column.')
-  }
+  } # End of ticker check if
 
   #Check if date is in a correct format
 
-  print('y')
-}
+
+  print('The code is run until the end.')
+} # End of function
