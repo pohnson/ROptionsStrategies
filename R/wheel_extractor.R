@@ -13,28 +13,29 @@
 #' cast_inflow, invested_capital, return_on_risk, and expiration_date. You can inspect the result by yourself or use wheel_visualizer().
 #'
 #' @examples
-#' Suppose there are three stocks as follows AAPL (Apple), AMZN (Amazon), and TSLA (Tesla). You want to know which stock option has the highest return on risk, which
-#' defined by cash inflow divided by invested capital for an expiration on Dec 31, 2021. You can input the following attributes to the function:
+#' #You want to know what strike price from AAPL, AMZN, and TSLA whose
+#' #expiration date is Dec 31, 2021 has the highest return on risk.
+#' #You'd input the parameters as follows:
 #'
-#' result <- wheel_extractor(
-#'      ticker = c('AAPL', 'AMZN', TSLA),
-#'      expiration_date = '2021-12-31',
-#'      consumer_key = 'xxx',
-#'      sleep_second = 1
-#' )
+#' #result <- wheel_extractor(
+#' #      ticker = c('AAPL', 'AMZN', 'TSLA'),
+#' #      expiration_date = '2021-12-31',
+#' #      consumer_key = 'Your TDA API Key',
+#' #      sleep_second = 1 #or 0 if you want
+#' # )
 #'
-#' Or if you have many stocks that you want to know you can simply create a data frame and use $.
+#' #If you have many stocks that you want to know you can simply create a data frame and use $.
 #'
-#' #First create a data frame
+#' ###### First create a data frame #####
 #' candidates <- data.frame(ticker = c('AAPL', 'AMZN', 'TSLA', 'GOOG'))
 #'
-#' #Then use $
-#' result <- wheel_extractor(
-#'      ticker = candidates$ticker
-#'      expiration_date = '2021-12-31',
-#'      consumer_key = 'xxx',
-#'      sleep_second = 1
-#' )
+#' ###### Then use $ #####
+#' #result <- wheel_extractor(
+#' #      ticker = candidates$ticker
+#' #      expiration_date = '2021-12-31',
+#' #      consumer_key = 'xxx',
+#' #      sleep_second = 1 #or 0 if you want
+#' # )
 #'
 #' @references
 #' If you haven't created a free TDAmeritrde API Key, please follow steps from this website https://www.reddit.com/r/algotrading/comments/c81vzq/td_ameritrade_api_access_2019_guide/
