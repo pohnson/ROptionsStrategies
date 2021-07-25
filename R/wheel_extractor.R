@@ -49,7 +49,7 @@ wheel_extractor <- function(
 
     ##### Request data from TDA #####
     temp_data <- try(
-      GET(
+      httr::GET(
         url = url_final
       )
     )
@@ -67,7 +67,7 @@ wheel_extractor <- function(
     } #End Check for Status Code
 
     ##### Extract Content #####
-    temp_data_2 <<- content(temp_data)
+    temp_data_2 <<- httr::content(temp_data)
 
   } #End of loop_a
 
