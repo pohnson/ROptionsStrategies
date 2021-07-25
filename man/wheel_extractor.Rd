@@ -2,7 +2,7 @@
 % Please edit documentation in R/wheel_extractor.R
 \name{wheel_extractor}
 \alias{wheel_extractor}
-\title{Bind two factors}
+\title{Find the Best Options for The Wheel Strategy}
 \usage{
 wheel_extractor(
   ticker = c("AAPL", "GOOG"),
@@ -12,18 +12,44 @@ wheel_extractor(
 )
 }
 \arguments{
-\item{ticker}{character}
+\item{ticker}{stock ticker}
 
-\item{expiration_date}{date}
+\item{expiration_date}{an option expiration date}
 
-\item{consumer_key}{character}
+\item{consumer_key}{Consumer Key from TDAmeritrade Developer}
 
-\item{sleep_second}{integer}
+\item{sleep_second}{Sleep in second before making a new API call}
 }
 \value{
-factor
+A data frame object with 10 columns: bid, delta, strikePrice, inTheMoney, ticker, prob_otm,
+cast_inflow, invested_capital, return_on_risk, and expiration_date. You can inspect the result by yourself or use wheel_visualizer().
 }
 \description{
-Create a new factor from two existing factors, where the new factor's levels
-are the union of the levels of the input factors.
+Create a data frame with options information to determine
+what options is the best for short put also known as "The Wheel" strategy
+}
+\examples{
+Suppose there are three stocks as follows AAPL (Apple), AMZN (Amazon), and TSLA (Tesla). You want to know which stock option has the highest return on risk, which
+defined by cash inflow divided by invested capital for an expiration on Dec 31, 2021. You can input the following attributes to the function:
+
+result <- wheel_extractor(
+     ticker = c('AAPL', 'AMZN', TSLA),
+     expiration_date = '2021-12-31',
+     consumer_key = 'xxx',
+     sleep_second = 1
+)
+
+Or if you have many stocks that you want to know you can simply create a data frame and use $.
+
+#First create a data frame
+candidates <- data.frame(ticker = c('AAPL', 'AMZN', 'TSLA', 'GOOG'))
+
+#Then use $
+result <- wheel_extractor(
+     ticker = candidates$ticker
+     expiration_date = '2021-12-31',
+     consumer_key = 'xxx',
+     sleep_second = 1
+)
+
 }
