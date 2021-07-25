@@ -5,7 +5,7 @@
 \title{Bind two factors}
 \usage{
 wheel_extractor(
-  ticker = c("aapl", "goog"),
+  ticker = c("AAPL", "GOOG"),
   expiration_date = Sys.Date(),
   consumer_key = NULL,
   sleep_second = 1
