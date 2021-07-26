@@ -9,15 +9,19 @@
 status](https://travis-ci.com/pohnson/ROptionsStrategies.svg?branch=main)](https://travis-ci.com/pohnson/ROptionsStrategies)
 <!-- badges: end -->
 
-The goal of ROptionsStrategies is to …
+The goal of ROptionsStrategies is to utilize the flexibilities of R and
+its vast libraries to analyze options data provided through TDAmeritrade
+API. Although the only available strategy is short put (The Wheel,)
+strategies such as spread, iron condor, and butterfly are in the
+development roadmap.
 
 ## Installation
 
 You can install the released version of ROptionsStrategies from
-[CRAN](https://CRAN.R-project.org) with:
+[CRAN](https://CRAN.R-project.org) WHEN IT IS AVAILABLE with:
 
 ``` r
-install.packages("ROptionsStrategies")
+#install.packages("ROptionsStrategies") Not available yet
 ```
 
 And the development version from [GitHub](https://github.com/) with:
@@ -27,31 +31,25 @@ And the development version from [GitHub](https://github.com/) with:
 devtools::install_github("pohnson/ROptionsStrategies")
 ```
 
-## Example
+## Authentication
 
-This is a basic example which shows you how to solve a common problem:
+The most important data point in this package is the TDAmeritrade’s
+Consumer Key. If you haven’t had one yet, please follow this thorough
+guideline to obtain one:
+<a href="ttps://www.reddit.com/r/algotrading/comments/c81vzq/td_ameritrade_api_access_2019_guide/">link</a>.
+
+## Wheel\_Extractor Function
+
+Now, let’s assume that you already have one and save it in a csv file.
+We then can read it like this.
 
 ``` r
 library(ROptionsStrategies)
-## basic example code
+library(tidyverse)
+
+consumer_key <- read_csv("consumer_key.csv") %>% as.character()
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
-
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/master/examples>.
+Let’s assume that you can only execute one Wheel trade and wonder if the
+option should be AAPL, AMD, or XLF. You can use to get underlying data
+as follows:

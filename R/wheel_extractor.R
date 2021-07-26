@@ -92,7 +92,7 @@ wheel_extractor <- function(
     url_to_6 <- expiration_date
     url_final <- paste(url_1, url_api_key_1.1, url_1.2, url_stock_2, url_3, url_from_4, url_5, url_to_6, sep = '')
 
-    print(url_final)
+    print('Requesting data for ', 'ticker[loop_a]')
 
     ##### Request data from TDA #####
     temp_data <- try(
