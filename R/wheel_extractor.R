@@ -40,6 +40,8 @@
 #' @references
 #' If you haven't created a free TDAmeritrde API Key, please follow steps from this website https://www.reddit.com/r/algotrading/comments/c81vzq/td_ameritrade_api_access_2019_guide/
 #'
+#' @seealso
+#' Execute ?wheel_visualizer() on how to visualize the resulting data frame
 #' @export
 #' @importFrom magrittr %>%
 #' @import httr
