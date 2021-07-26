@@ -6,13 +6,16 @@
 \usage{
 wheel_visualizer(
   data = NULL,
-  visualization = c("ggplot_histogram", "plotly_histogram")
+  visualization_type = "ggplot_histogram",
+  include_in_the_money = FALSE
 )
 }
 \arguments{
 \item{data}{xx}
 
-\item{visualization}{yy}
+\item{visualization_type}{yy}
+
+\item{include_in_the_money}{zz}
 }
 \value{
 A data frame object with 10 columns: bid
