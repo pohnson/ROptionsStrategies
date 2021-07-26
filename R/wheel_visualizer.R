@@ -10,8 +10,8 @@
 #' @return
 #' A data frame object with 10 columns: bid
 #' @export
+#' @import ggplot2
 #' @importFrom magrittr %>%
-#' @importFrom ggplot2 ggplot geom_point
 #' @importFrom scales percent
 #' @importFrom rlang .data
 
