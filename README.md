@@ -4,6 +4,9 @@
 # ROptionsStrategies
 
 <!-- badges: start -->
+
+[![Travis build
+status](https://travis-ci.com/pohnson/ROptionsStrategies.svg?branch=main)](https://travis-ci.com/pohnson/ROptionsStrategies)
 <!-- badges: end -->
 
 The goal of ROptionsStrategies is to …
