@@ -3,3 +3,4 @@
 .Rhistory
 ROptionsStrategies.Rproj
 .DS_Store
+.travis.yml
