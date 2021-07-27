@@ -50,4 +50,44 @@ library(tidyverse)
 consumer_key <- read_csv("consumer_key.csv") %>% as.character()
 ```
 
-Let's assume that you can only execute one Wheel trade and wonder if the option should be AAPL, AMD, or XLF. You can use to get underlying data as follows:
+Let's assume that you can only execute one Wheel trade and wonder if the option should be AMD or XLF. You can use `wheel_extractor` to get underlying data as follows:
+
+```{r get data}
+data <- wheel_extractor(
+  ticker = c('AMD', 'XLF'),
+  expiration_date = '2021-08-06',
+  consumer_key = consumer_key,
+  sleep_second = 1
+)
+
+head(data)
+```
+
+But you can also parse data from another data frame using `$`:
+
+```{r get data from data frame}
+data_ticker <- data.frame(
+  ticker = c('AMD', 'XLF')
+)
+
+data2 <- wheel_extractor(
+  ticker = data_ticker$ticker,
+  expiration_date = '2021-08-06',
+  consumer_key = consumer_key,
+  sleep_second = 1
+)
+
+head(data2)
+```
+
+## Wheel Visualizer
+Then you can use `wheel_visualizer` to inspect which stock at a given risk (Probability OTM) has the higest return.
+
+```{r visualize}
+wheel_visualizer(
+  data = data,
+  include_in_the_money = FALSE
+)
+
+
+```

@@ -51,5 +51,81 @@ consumer_key <- read_csv("consumer_key.csv") %>% as.character()
 ```
 
 Let’s assume that you can only execute one Wheel trade and wonder if the
-option should be AAPL, AMD, or XLF. You can use to get underlying data
-as follows:
+option should be AMD or XLF. You can use `wheel_extractor` to get
+underlying data as follows:
+
+``` r
+data <- wheel_extractor(
+  ticker = c('AMD', 'XLF'),
+  expiration_date = '2021-08-06',
+  consumer_key = consumer_key,
+  sleep_second = 1
+)
+#> [1] "Requesting data for AMD"
+#> [1] "Requesting data for XLF"
+#> [1] "Finished requesting data from TDAmeritrade."
+
+head(data)
+#>    bid  delta strikePrice inTheMoney ticker prob_otm cash_inflow
+#> 1 0.00 -0.001          55      FALSE    AMD    0.999           0
+#> 2 0.00 -0.003          60      FALSE    AMD    0.997           0
+#> 3 0.00 -0.006          65      FALSE    AMD    0.994           0
+#> 4 0.04 -0.011          70      FALSE    AMD    0.989           4
+#> 5 0.10 -0.027          75      FALSE    AMD    0.973          10
+#> 6 0.11 -0.031          76      FALSE    AMD    0.969          11
+#>   invested_capital return_on_risk expiration_date
+#> 1             5500   0.0000000000      2021-08-06
+#> 2             6000   0.0000000000      2021-08-06
+#> 3             6500   0.0000000000      2021-08-06
+#> 4             7000   0.0005714286      2021-08-06
+#> 5             7500   0.0013333333      2021-08-06
+#> 6             7600   0.0014473684      2021-08-06
+```
+
+But you can also parse data from another data frame using `$`:
+
+``` r
+data_ticker <- data.frame(
+  ticker = c('AMD', 'XLF')
+)
+
+data2 <- wheel_extractor(
+  ticker = data_ticker$ticker,
+  expiration_date = '2021-08-06',
+  consumer_key = consumer_key,
+  sleep_second = 1
+)
+#> [1] "Requesting data for AMD"
+#> [1] "Requesting data for XLF"
+#> [1] "Finished requesting data from TDAmeritrade."
+
+head(data2)
+#>    bid  delta strikePrice inTheMoney ticker prob_otm cash_inflow
+#> 1 0.00 -0.001          55      FALSE    AMD    0.999           0
+#> 2 0.00 -0.003          60      FALSE    AMD    0.997           0
+#> 3 0.00 -0.006          65      FALSE    AMD    0.994           0
+#> 4 0.04 -0.011          70      FALSE    AMD    0.989           4
+#> 5 0.10 -0.027          75      FALSE    AMD    0.973          10
+#> 6 0.11 -0.031          76      FALSE    AMD    0.969          11
+#>   invested_capital return_on_risk expiration_date
+#> 1             5500   0.0000000000      2021-08-06
+#> 2             6000   0.0000000000      2021-08-06
+#> 3             6500   0.0000000000      2021-08-06
+#> 4             7000   0.0005714286      2021-08-06
+#> 5             7500   0.0013333333      2021-08-06
+#> 6             7600   0.0014473684      2021-08-06
+```
+
+## Wheel Visualizer
+
+Then you can use `wheel_visualizer` to inspect which stock at a given
+risk (Probability OTM) has the higest return.
+
+``` r
+wheel_visualizer(
+  data = data,
+  include_in_the_money = FALSE
+)
+```
+
+<img src="man/figures/README-visualize-1.png" width="100%" />
