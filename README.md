@@ -36,7 +36,7 @@ devtools::install_github("pohnson/ROptionsStrategies")
 The most important data point in this package is the TDAmeritrade’s
 Consumer Key. If you haven’t had one yet, please follow this thorough
 guideline to obtain one:
-<a href="ttps://www.reddit.com/r/algotrading/comments/c81vzq/td_ameritrade_api_access_2019_guide/">link</a>.
+<a href="https://www.reddit.com/r/algotrading/comments/c81vzq/td_ameritrade_api_access_2019_guide/">link</a>.
 
 ## Wheel\_Extractor Function
 
