@@ -92,7 +92,13 @@ wheel_extractor <- function(
     url_to_6 <- expiration_date
     url_final <- paste(url_1, url_api_key_1.1, url_1.2, url_stock_2, url_3, url_from_4, url_5, url_to_6, sep = '')
 
-    print('Requesting data for ', 'ticker[loop_a]')
+    print(
+      paste(
+        'Requesting data for',
+        url_stock_2,
+        sep = ' '
+      )
+    )
 
     ##### Request data from TDA #####
     temp_data <- try(
@@ -157,6 +163,7 @@ wheel_extractor <- function(
     Sys.sleep(sleep_second)
 
   } #End of loop_a
+  print('Finished requesting data from TDAmeritrade.')
 
   temp_container_3 <- temp_container %>%
     dplyr::mutate(
