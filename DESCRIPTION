@@ -1,12 +1,14 @@
 Package: ROptionsStrategies
-Title: What the Package Does (One Line, Title Case)
+Title: Using R Flexibilities for Options Analysis
 Version: 1.0.0
 Authors@R: 
     person(given = "Pohnson",
            family = "Han",
            role = c("aut", "cre"),
            email = "pohnson@outlook.com")
-Description: What the package does (one paragraph).
+Description: Use R to query data from TDAmeritrade API, analyze, and visualize what ususally limits to platform specific 
+    such as finding the best options to invests. In order to utilize the package, a user needs a TDAmeritrade account and
+    a free TDAmeritrade devoper app. If you haven't had one, please see README.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
