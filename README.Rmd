@@ -81,7 +81,7 @@ head(data2)
 ```
 
 ## Wheel Visualizer
-Then you can use `wheel_visualizer` to inspect which stock at a given risk (Probability OTM) has the higest return.
+Then you can use `wheel_visualizer` to inspect which stock at a given risk (Probability OTM) has the highest return.
 
 ```{r visualize}
 wheel_visualizer(

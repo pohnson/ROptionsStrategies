@@ -67,19 +67,19 @@ data <- wheel_extractor(
 
 head(data)
 #>    bid  delta strikePrice inTheMoney ticker prob_otm cash_inflow
-#> 1 0.00 -0.001          55      FALSE    AMD    0.999           0
+#> 1 0.00 -0.002          55      FALSE    AMD    0.998           0
 #> 2 0.00 -0.003          60      FALSE    AMD    0.997           0
-#> 3 0.00 -0.006          65      FALSE    AMD    0.994           0
-#> 4 0.04 -0.011          70      FALSE    AMD    0.989           4
-#> 5 0.10 -0.027          75      FALSE    AMD    0.973          10
-#> 6 0.11 -0.031          76      FALSE    AMD    0.969          11
+#> 3 0.01 -0.006          65      FALSE    AMD    0.994           1
+#> 4 0.00 -0.006          66      FALSE    AMD    0.994           0
+#> 5 0.00 -0.009          67      FALSE    AMD    0.991           0
+#> 6 0.00 -0.007          68      FALSE    AMD    0.993           0
 #>   invested_capital return_on_risk expiration_date
 #> 1             5500   0.0000000000      2021-08-06
 #> 2             6000   0.0000000000      2021-08-06
-#> 3             6500   0.0000000000      2021-08-06
-#> 4             7000   0.0005714286      2021-08-06
-#> 5             7500   0.0013333333      2021-08-06
-#> 6             7600   0.0014473684      2021-08-06
+#> 3             6500   0.0001538462      2021-08-06
+#> 4             6600   0.0000000000      2021-08-06
+#> 5             6700   0.0000000000      2021-08-06
+#> 6             6800   0.0000000000      2021-08-06
 ```
 
 But you can also parse data from another data frame using `$`:
@@ -101,25 +101,25 @@ data2 <- wheel_extractor(
 
 head(data2)
 #>    bid  delta strikePrice inTheMoney ticker prob_otm cash_inflow
-#> 1 0.00 -0.001          55      FALSE    AMD    0.999           0
+#> 1 0.00 -0.002          55      FALSE    AMD    0.998           0
 #> 2 0.00 -0.003          60      FALSE    AMD    0.997           0
-#> 3 0.00 -0.006          65      FALSE    AMD    0.994           0
-#> 4 0.04 -0.011          70      FALSE    AMD    0.989           4
-#> 5 0.10 -0.027          75      FALSE    AMD    0.973          10
-#> 6 0.11 -0.031          76      FALSE    AMD    0.969          11
+#> 3 0.01 -0.006          65      FALSE    AMD    0.994           1
+#> 4 0.00 -0.006          66      FALSE    AMD    0.994           0
+#> 5 0.00 -0.009          67      FALSE    AMD    0.991           0
+#> 6 0.00 -0.007          68      FALSE    AMD    0.993           0
 #>   invested_capital return_on_risk expiration_date
 #> 1             5500   0.0000000000      2021-08-06
 #> 2             6000   0.0000000000      2021-08-06
-#> 3             6500   0.0000000000      2021-08-06
-#> 4             7000   0.0005714286      2021-08-06
-#> 5             7500   0.0013333333      2021-08-06
-#> 6             7600   0.0014473684      2021-08-06
+#> 3             6500   0.0001538462      2021-08-06
+#> 4             6600   0.0000000000      2021-08-06
+#> 5             6700   0.0000000000      2021-08-06
+#> 6             6800   0.0000000000      2021-08-06
 ```
 
 ## Wheel Visualizer
 
 Then you can use `wheel_visualizer` to inspect which stock at a given
-risk (Probability OTM) has the higest return.
+risk (Probability OTM) has the highest return.
 
 ``` r
 wheel_visualizer(
